@@ -1,0 +1,14 @@
+﻿@model WebApp.Models.Produkt
+
+<h2>Szczegóły Produktu</h2>
+
+<table class="table">
+    <tr><th>Id</th><td>@Model.Id</td></tr>
+    <tr><th>Nazwa</th><td>@Model.Name</td></tr>
+    <tr><th>Cena</th><td>@Model.Price</td></tr>
+    <tr><th>Producent</th><td>@Model.Producent</td></tr>
+    <tr><th>Data Produktu</th><td>@Model.Produktdate.ToString("yyyy-MM-dd")</td></tr>
+    <tr><th>Opis</th><td>@Model.Description</td></tr>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>

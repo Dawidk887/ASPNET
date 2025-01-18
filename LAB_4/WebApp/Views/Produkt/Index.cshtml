@@ -1,0 +1,36 @@
+@model Dictionary<int, WebApp.Models.Produkt>
+
+<h2>Lista Produktów</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nazwa</th>
+        <th>Cena</th>
+        <th>Producent</th>
+        <th>Data Produktu</th>
+        <th>Opis</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var produkt in Model.Values)
+    {
+        <tr>
+            <td>@produkt.Id</td>
+            <td>@produkt.Name</td>
+            <td>@produkt.Price</td>
+            <td>@produkt.Producent</td>
+            <td>@produkt.Produktdate.ToString("yyyy-MM-dd")</td>
+            <td>@produkt.Description</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@produkt.Id" class="btn btn-info">Szczegóły</a>
+                <a asp-action="Edit" asp-route-id="@produkt.Id" class="btn btn-warning">Edytuj</a>
+                <a asp-action="Delete" asp-route-id="@produkt.Id" class="btn btn-danger" onclick="return confirm('Czy na pewno chcesz usunąć ten produkt?');">Usuń</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Dodaj nowy produkt</a>
